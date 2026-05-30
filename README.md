@@ -26,30 +26,211 @@ Para alimentar o NotebookLM, foram selecionadas as seguintes fontes de alta auto
 4.  **Medium (Cezar Antonio):** [Complexidade de Algoritmos: Abordagens O(n²), O(n) e O(n log n)](https://cezarantoniodesouza.medium.com/complexidade-de-algoritmos-abordagens-o-n%C2%B2-o-n-e-o-n-log-n-para-o-mesmo-problema-4b7dc20a9869) - Estudo de caso comparativo.
 5.  **Computação UAB/UECE (Mariela Inés Cortés):** [Estrutura de Dados](https://www.uece.br/cct/wp-content/uploads/sites/28/2021/07/Estrutura-de-Dados-2014.pdf)
 6.  **Algoritmos e estruturas de dados 1 UFPR**: [Algoritmos e estruturas de dados 1](http://inf.ufpr.br/marcos/livro_alg1/livro_alg1.pdf)
----
-
+7.  **Fabio Akita:**[Árvores: O Começo de TUDO | Estruturas de Dados e Algoritmos](https://youtu.be/9GdesxWtOgs?si=WytRQiwttc84vUhQ)
+8.  **Algoritmos (Prof. Dr. Osvaldo Luiz de Oliveira):**[Análise de Algoritmos e Complexidade da Computação ](https://cc.faccamp.br/docentes/osvaldo/EstruturasDados.pdf)
 ## 3. Engenharia de Prompts e "Cicatrizes" (Troubleshooting)
 
-Durante a interação com o NotebookLM, foram testadas diferentes abordagens para extrair o máximo das fontes:
-
-### Teste 1: Prompt Direto (Baixa Eficácia)
-*   **Pergunta:** "O que é Big O?"
-*   **Resposta da IA:** Uma definição técnica padrão.
-*   **Cicatriz:** A resposta foi genérica. Para melhorar, precisei pedir exemplos baseados especificamente nas fontes fornecidas.
-
-### Teste 2: Prompt de Contexto Fechado (Alta Eficácia)
-*   **Pergunta:** "Com base no artigo da IBM e do DataCamp, crie uma tabela comparativa entre Array e Linked List, destacando a complexidade de inserção e busca para cada uma."
-*   **Resposta da IA:** Gerou uma tabela precisa citando as fontes 1 e 3.
-*   **Raciocínio:** O uso de delimitadores de fonte ajudou a IA a não "alucinar" conhecimentos externos.
-
-### Teste 3: Prompt de Analogia (Aprendizagem Ativa)
-*   **Pergunta:** "Explique a diferença entre O(n) e O(log n) usando uma analogia de procurar um nome em uma lista telefônica."
-*   **Referência:** Fonte 4.
-*   **Dificuldade:** Inicialmente a IA confundiu O(log n) com O(1). Tive que refinar o prompt pedindo para ela focar na técnica de "dividir para conquistar" mencionada nos textos.
+Abaixo estão registrados os testes realizados no NotebookLM, as respostas obtidas e o raciocínio por trás de cada interação.
 
 ---
 
-## 4. Miniguia de Estudo (Entrega Final)
+### Teste 1: Prompt Direto (Definições Fundamentais)
+
+### Pergunta
+
+> **O que é Big O?**
+
+#### Resposta da IA
+
+A notação **Big O** é uma métrica matemática utilizada para descrever a complexidade de um algoritmo, medindo como o tempo de execução (complexidade temporal) ou o uso de memória (complexidade espacial) escalam à medida que o tamanho da entrada (**n**) aumenta.
+
+##### Conceitos Fundamentais
+
+* **Limite Superior:** fornece uma estimativa máxima de crescimento do custo computacional.
+* **Pior Cenário:** normalmente analisa o cenário mais pessimista para prever o consumo máximo de recursos.
+* **Simplificação Matemática:** constantes e termos menos significativos são ignorados.
+
+  * Exemplo: `4n² + 2n + 7` → **O(n²)**
+* **Independência de Hardware:** permite comparar algoritmos independentemente da linguagem, sistema operacional ou máquina utilizada.
+
+##### Principais Categorias de Complexidade
+
+| Complexidade  | Descrição                     |
+| ------------- | ----------------------------- |
+| O(1)          | Tempo constante               |
+| O(log n)      | Tempo logarítmico             |
+| O(n)          | Tempo linear                  |
+| O(n log n)    | Tempo log-linear              |
+| O(n²)         | Tempo quadrático              |
+| O(2ⁿ) / O(n!) | Tempo exponencial ou fatorial |
+
+#### Cicatriz
+
+A resposta inicial foi correta, porém excessivamente teórica. Para entender melhor o ponto de partida da IA, solicitei uma explicação sobre as estruturas básicas de programação.
+
+---
+
+### Pergunta
+
+> **Quais são as estruturas básicas de controle como repetição e desvio condicional?**
+
+#### Resposta da IA
+
+As estruturas básicas de controle em algoritmos são:
+
+##### 1. Sequência
+
+Execução de instruções uma após a outra, seguindo a ordem lógica do programa.
+
+##### 2. Seleção (Desvio Condicional)
+
+Permite alterar o fluxo de execução com base em condições lógicas.
+
+Exemplos:
+
+* `if / then`
+* `if / then / else`
+* `case`
+
+##### 3. Repetição (Iteração)
+
+Permite executar um bloco de código múltiplas vezes.
+
+Exemplos:
+
+* `while`
+* `for`
+* `repeat / until`
+
+Qualquer algoritmo pode ser construído combinando essas três estruturas fundamentais.
+
+#### Cicatriz
+
+A resposta também foi correta, mas ainda muito conceitual. Percebi que, para compreender a aplicação prática, eu precisava direcionar a IA para comparações específicas presentes nas fontes consultadas.
+
+---
+
+### Teste 2: Prompt de Contexto Fechado (Análise Comparativa)
+
+### Pergunta
+
+> **Com base no artigo da IBM e do DataCamp, crie uma tabela comparativa entre Array e Linked List, destacando a complexidade de inserção e busca para cada uma.**
+
+#### Resposta da IA
+
+##### Tabela Comparativa: Array vs Linked List
+
+| Operação              | Array (Vetor)     | Linked List (Lista Ligada) |
+| --------------------- | ----------------- | -------------------------- |
+| Busca (Acesso Direto) | O(1)              | O(n)                       |
+| Busca por Valor       | O(n)              | O(n)                       |
+| Inserção no Início    | O(n)              | O(1)                       |
+| Inserção no Final     | O(1)*             | O(n)                       |
+| Uso de Memória        | Estático/Contíguo | Dinâmico/Encadeado         |
+
+> * Considerando que exista espaço disponível no array.
+
+#### Análise da IA
+
+##### Arrays
+
+**Vantagens**
+
+* Acesso direto extremamente rápido (`O(1)`).
+* Estrutura simples e eficiente para leitura frequente.
+
+**Desvantagens**
+
+* Inserções e remoções podem exigir deslocamento de elementos (`O(n)`).
+
+##### Linked Lists
+
+**Vantagens**
+
+* Inserções e remoções eficientes.
+* Crescimento dinâmico.
+
+**Desvantagens**
+
+* Não possuem acesso direto por índice.
+* Necessitam percorrer a estrutura para localizar elementos.
+
+#### Implicações Práticas
+
+| Cenário                     | Estrutura Recomendada |
+| --------------------------- | --------------------- |
+| Leitura frequente de dados  | Array                 |
+| Muitas inserções e remoções | Linked List           |
+| Tamanho previsível          | Array                 |
+| Crescimento dinâmico        | Linked List           |
+
+#### Raciocínio
+
+Este foi o prompt mais eficaz do experimento, pois obrigou a IA a extrair informações técnicas específicas e organizá-las em formato tabular, reduzindo ambiguidades e respostas genéricas.
+
+---
+
+### Teste 3: Prompt de Analogia (Refinamento de Lógica)
+
+### Pergunta
+
+> **Explique a diferença entre O(n) e O(log n) usando uma analogia de procurar um nome em uma lista telefônica.**
+
+#### Resposta da IA
+
+##### O(n) — Busca Linear
+
+Imagine procurar uma pessoa em uma lista telefônica lendo nome por nome desde a primeira página.
+
+* No pior caso, será necessário verificar todos os nomes.
+* Se a lista dobrar de tamanho, o trabalho também dobra.
+
+**Exemplo:**
+
+* 1.000 nomes → até 1.000 verificações.
+* 1.000.000 de nomes → até 1.000.000 de verificações.
+
+---
+
+##### O(log n) — Busca Binária
+
+Agora imagine abrir a lista exatamente no meio.
+
+* Se o nome procurado estiver antes, você descarta metade da lista.
+* Se estiver depois, descarta a outra metade.
+* Repete o processo sucessivamente.
+
+A cada etapa, metade dos dados é eliminada.
+
+**Exemplo:**
+
+| Quantidade de Nomes | O(n)                 | O(log n)   |
+| ------------------- | -------------------- | ---------- |
+| 1.000               | 1.000 passos         | ~10 passos |
+| 1.000.000           | 1.000.000 passos     | ~20 passos |
+| 1.000.000.000       | 1.000.000.000 passos | ~30 passos |
+
+#### Raciocínio
+
+Este prompt demonstrou como analogias ajudam a transformar conceitos abstratos em exemplos intuitivos. A explicação ficou significativamente mais acessível para quem está iniciando o estudo de análise de algoritmos, permitindo visualizar o impacto do crescimento das complexidades na prática.
+
+---
+
+### Conclusão
+
+Os testes mostraram que a qualidade da resposta está diretamente relacionada ao nível de contexto fornecido ao modelo.
+
+#### Aprendizados
+
+* **Prompts diretos** produzem definições corretas, porém mais genéricas.
+* **Prompts de contexto fechado** geram respostas mais precisas e alinhadas às fontes.
+* **Prompts com analogias** facilitam o entendimento de conceitos abstratos.
+* **Solicitações de tabelas e comparações** tendem a produzir respostas mais organizadas e úteis para estudo.
+
+A principal lição foi que o refinamento do prompt tem impacto direto na profundidade, clareza e aplicabilidade das respostas geradas pela IA.
+
+
+## 4. Miniguia de Estudo 
 
 ### Resumo Estruturado
 1.  **Estruturas de Dados:** São métodos de organizar e armazenar dados para que possam ser acessados e modificados de forma eficiente. Exemplos incluem Arrays (acesso rápido por índice) e Tabelas Hash (busca quase instantânea).
@@ -68,6 +249,8 @@ Durante a interação com o NotebookLM, foram testadas diferentes abordagens par
 *   *"Explique para uma criança de 10 anos o conceito de O(n²) usando a fonte do Medium como base."*
 
 ---
-**Autor:** Daiane das Graças Barbosa Koslowski
+**Autora:** Daiane das Graças Barbosa Koslowski
+
 **Bootcamp:** Afya - Automação de Dados com IA
+
 **Plataforma:** [DIO](https://www.dio.me)
