@@ -233,15 +233,209 @@ A principal lição foi que o refinamento do prompt tem impacto direto na profun
 ## 4. Miniguia de Estudo 
 
 ### Resumo Estruturado
-1.  **Estruturas de Dados:** São métodos de organizar e armazenar dados para que possam ser acessados e modificados de forma eficiente. Exemplos incluem Arrays (acesso rápido por índice) e Tabelas Hash (busca quase instantânea).
-2.  **Complexidade de Algoritmos:** Mede quanto tempo ou espaço um algoritmo consome à medida que o volume de dados (n) cresce.
-3.  **Notação Big O:** A linguagem usada para descrever essa complexidade. O objetivo de um bom desenvolvedor é evitar algoritmos O(n²) em grandes bases de dados, preferindo O(n) ou O(log n).
+
+#### 1. Algoritmos e Estruturas de Dados
+
+Um **algoritmo** é um conjunto de regras não ambíguas que define uma sequência finita de operações capazes de gerar uma saída a partir de uma entrada.
+
+Uma **estrutura de dados** é a forma de organizar e armazenar informações para que possam ser acessadas e manipuladas de maneira eficiente.
+
+Esses conceitos são complementares:
+
+* O algoritmo define **o que fazer**.
+* A estrutura de dados define **como armazenar os dados**.
+* Uma estrutura adequada potencializa a eficiência e a escalabilidade da solução.
+
+##### Classificação das Estruturas de Dados
+
+###### Estruturas Lineares
+
+Os elementos seguem uma única sequência lógica.
+
+Exemplos:
+
+* Arrays (Vetores)
+* Listas Ligadas
+* Pilhas (Stacks)
+* Filas (Queues)
+
+###### Estruturas Não-Lineares
+
+Os dados são organizados hierarquicamente ou em rede.
+
+Exemplos:
+
+* Árvores (Trees)
+* Grafos (Graphs)
+
+---
+
+#### 2. Principais Estruturas de Dados
+
+##### Arrays (Vetores)
+
+Armazenam elementos do mesmo tipo em posições contíguas de memória.
+
+**Características:**
+
+* Acesso direto: `O(1)`
+* Tamanho fixo
+* Excelente desempenho para leitura
+
+##### Listas Ligadas (Linked Lists)
+
+Estruturas dinâmicas compostas por nós conectados por ponteiros.
+
+**Características:**
+
+* Inserções eficientes
+* Crescimento dinâmico
+* Busca sequencial: `O(n)`
+
+##### Pilhas (Stacks)
+
+Seguem o princípio **LIFO (Last In, First Out)**.
+
+> O último elemento inserido é o primeiro a ser removido.
+
+##### Filas (Queues)
+
+Seguem o princípio **FIFO (First In, First Out)**.
+
+> O primeiro elemento inserido é o primeiro a ser removido.
+
+##### Árvores (Trees)
+
+Representam relações hierárquicas entre elementos.
+
+###### Árvores Binárias de Busca (BST)
+
+Permitem operações eficientes de busca, inserção e remoção.
+
+| Operação | Complexidade |
+| -------- | ------------ |
+| Busca    | O(log n)     |
+| Inserção | O(log n)     |
+| Remoção  | O(log n)     |
+
+---
+
+#### 3. Análise de Complexidade e Notação Big O
+
+A análise de complexidade mede como o consumo de recursos cresce conforme o tamanho da entrada (`n`) aumenta.
+
+##### Tipos de Complexidade
+
+###### Complexidade Temporal
+
+Mede o tempo de execução do algoritmo.
+
+###### Complexidade Espacial
+
+Mede o consumo de memória.
+
+##### Notação Big O
+
+A Notação Big O fornece um limite superior para o crescimento do custo computacional no pior cenário.
+
+##### Principais Classes de Complexidade
+
+| Complexidade | Descrição   | Exemplo                  |
+| ------------ | ----------- | ------------------------ |
+| O(1)         | Constante   | Acesso a índice de vetor |
+| O(log n)     | Logarítmica | Busca Binária            |
+| O(n)         | Linear      | Busca Sequencial         |
+| O(n log n)   | Log-Linear  | Merge Sort, QuickSort    |
+| O(n²)        | Quadrática  | Selection Sort           |
+| O(2ⁿ)        | Exponencial | Força Bruta              |
+| O(n!)        | Fatorial    | Permutações              |
+
+---
+
+#### 4. Importância Prática
+
+Dominar algoritmos e estruturas de dados permite:
+
+* Construir aplicações mais rápidas
+* Reduzir consumo de memória
+* Melhorar escalabilidade
+* Resolver problemas de forma eficiente
+
+##### Exemplo Prático
+
+Uma escolha inadequada de algoritmo pode fazer com que milhões de registros sejam processados em horas ou dias, enquanto uma solução otimizada executaria a mesma tarefa em segundos ou milissegundos.
+
+---
 
 ### Glossário de Conceitos
-*   **Big O:** Notação que descreve o limite superior da complexidade de um algoritmo.
-*   **Time Complexity:** Tempo de execução em função do tamanho da entrada.
-*   **Space Complexity:** Memória utilizada pelo algoritmo.
-*   **Binary Search:** Exemplo clássico de O(log n), onde o espaço de busca é dividido pela metade a cada passo.
+
+#### Conceitos Fundamentais
+
+| Conceito                         | Definição                                                                                        |
+| -------------------------------- | ------------------------------------------------------------------------------------------------ |
+| **Algoritmo**                    | Sequência finita e precisa de instruções utilizada para transformar entradas em saídas.          |
+| **Estrutura de Dados**           | Forma de organizar e armazenar informações para permitir acesso e manipulação eficientes.        |
+| **Tipo Abstrato de Dados (TAD)** | Modelo conceitual que define os dados e as operações possíveis, sem especificar a implementação. |
+| **Variável**                     | Abstração de um endereço de memória identificada por um nome.                                    |
+| **Ponteiro (Apontador)**         | Tipo de dado que armazena o endereço de memória de outro dado.                                   |
+| **Recursividade**                | Técnica em que uma função chama a si mesma para resolver um problema.                            |
+
+---
+
+#### Análise de Complexidade
+
+| Conceito                      | Definição                                                                                               |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Notação Big O**             | Representação matemática utilizada para descrever o crescimento do custo computacional de um algoritmo. |
+| **Complexidade Temporal**     | Quantidade de operações executadas em função do tamanho da entrada.                                     |
+| **Complexidade Espacial**     | Quantidade de memória utilizada durante a execução.                                                     |
+| **Comportamento Assintótico** | Estudo do crescimento de uma função quando a entrada tende ao infinito.                                 |
+
+---
+
+#### Principais Estruturas de Dados
+
+| Estrutura                      | Descrição                                                                 | Complexidade Principal         |
+| ------------------------------ | ------------------------------------------------------------------------- | ------------------------------ |
+| **Array (Vetor)**              | Estrutura linear que armazena elementos em posições contíguas de memória. | Acesso: `O(1)`                 |
+| **Lista Ligada (Linked List)** | Estrutura dinâmica composta por nós conectados por ponteiros.             | Busca: `O(n)`                  |
+| **Pilha (Stack)**              | Estrutura baseada no princípio LIFO (*Last In, First Out*).               | Inserção/Remoção: `O(1)`       |
+| **Fila (Queue)**               | Estrutura baseada no princípio FIFO (*First In, First Out*).              | Inserção/Remoção: `O(1)`       |
+| **Árvore (Tree)**              | Estrutura hierárquica composta por nó raiz e nós filhos.                  | Busca média: `O(log n)`        |
+| **Grafo (Graph)**              | Conjunto de vértices conectados por arestas.                              | Depende do algoritmo utilizado |
+| **Tabela Hash (Hash Table)**   | Estrutura que utiliza uma função hash para mapear chaves em índices.      | Busca média: `O(1)`            |
+
+##### Operações em Tabelas Hash
+
+| Operação | Complexidade Média |
+| -------- | ------------------ |
+| Busca    | `O(1)`             |
+| Inserção | `O(1)`             |
+| Remoção  | `O(1)`             |
+
+---
+
+#### Algoritmos de Busca e Ordenação
+
+| Algoritmo          | Descrição                                                             | Complexidade |
+| ------------------ | --------------------------------------------------------------------- | ------------ |
+| **Busca Linear**   | Percorre os elementos sequencialmente até encontrar o valor desejado. | `O(n)`       |
+| **Busca Binária**  | Divide repetidamente um conjunto ordenado pela metade.                | `O(log n)`   |
+| **Selection Sort** | Posiciona o menor elemento corretamente a cada iteração.              | `O(n²)`      |
+
+---
+
+#### Conceitos Relacionados
+
+| Conceito                     | Definição                                                                         |
+| ---------------------------- | --------------------------------------------------------------------------------- |
+| **Colisão (Hash Collision)** | Ocorre quando duas chaves diferentes produzem o mesmo índice em uma tabela hash.  |
+| **LIFO**                     | *Last In, First Out* — o último elemento inserido é o primeiro a ser removido.    |
+| **FIFO**                     | *First In, First Out* — o primeiro elemento inserido é o primeiro a ser removido. |
+| **Nó (Node)**                | Unidade básica de estruturas como listas ligadas, árvores e grafos.               |
+| **Ponteiro**                 | Referência para o endereço de memória de outro elemento.                          |
+
+
 
 ### Prompts Reutilizáveis para Revisão
 *   *"Resuma os 3 principais benefícios de usar a estrutura de dados correta mencionados na fonte da UDS."*
